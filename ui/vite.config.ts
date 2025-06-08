@@ -4,6 +4,7 @@ import { defineConfig, loadEnv } from 'vite'
 
 import vue from '@vitejs/plugin-vue'
 import DefineOptions from 'unplugin-vue-define-options/vite'
+import { ALL } from 'node:dns'
 
 const envDir = './env'
 // https://vitejs.dev/config/
@@ -37,7 +38,12 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
       port: Number(ENV.VITE_APP_PORT),
       strictPort: true,
-      proxy: proxyConf
+      proxy: proxyConf,
+      allowedHosts: [
+        "nunjxjcswaal.sealosbja.site", // 显式添加目标域名
+        "localhost", // 保留本地开发支持
+        ".local", // 允许局域网访问
+      ]
     },
     build: {
       outDir: 'dist/ui'
