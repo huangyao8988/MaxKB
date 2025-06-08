@@ -59,9 +59,11 @@
             </template>
           </el-dropdown>
         </el-dropdown-item>
-        <el-dropdown-item class="border-t" @click="openAbout">
-          {{ $t('layout.about.title') }}
-        </el-dropdown-item>
+<!-- 
+<el-dropdown-item class="border-t" @click="openAbout">
+  {{ $t('layout.about.title') }}
+</el-dropdown-item>
+-->
 
         <el-dropdown-item class="border-t" @click="logout">
           {{ $t('layout.logout') }}
